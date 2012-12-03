@@ -5,7 +5,7 @@
  * @author Chris (c.baillie@abdn.ac.uk)
  */
 
-package entity;
+package uk.ac.dotrural.reasoning;
 
 public abstract class JsonEntity {
 

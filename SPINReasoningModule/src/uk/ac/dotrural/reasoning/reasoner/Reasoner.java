@@ -4,7 +4,7 @@
  * @author Chris (c.baillie@abdn.ac.uk)
  */
 
-package reasoner;
+package uk.ac.dotrural.reasoning.reasoner;
 
 import org.topbraid.spin.inference.SPINInferences;
 import org.topbraid.spin.system.SPINModuleRegistry;

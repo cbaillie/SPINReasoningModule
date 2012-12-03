@@ -4,7 +4,7 @@
  * @author Chris (c.baillie@abdn.ac.uk)
  */
 
-package logging;
+package uk.ac.dotrural.reasoning.logging;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

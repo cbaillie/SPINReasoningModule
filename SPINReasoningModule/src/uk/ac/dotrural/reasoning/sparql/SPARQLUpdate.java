@@ -4,13 +4,13 @@
  * @author Chris (c.baillie@abdn.ac.uk)
  */
 
-package sparql;
+package uk.ac.dotrural.reasoning.sparql;
 
 import com.hp.hpl.jena.sparql.modify.UpdateProcessRemote;
 import com.hp.hpl.jena.update.UpdateFactory;
 import com.hp.hpl.jena.update.UpdateRequest;
 
-public class SPARQLUpdate {
+public class SPARQLUpdate extends SPARQLUtility {
 	
 	private String endpoint;
 	
@@ -21,7 +21,7 @@ public class SPARQLUpdate {
 	 */
 	public SPARQLUpdate(String e)
 	{
-		endpoint = e;
+		super(e);
 	}
 	
 	/**
@@ -50,17 +50,6 @@ public class SPARQLUpdate {
 			ex.printStackTrace();
 		}
 		return false;
-	}
-	
-	/**
-	 * Send messages to the user
-	 * 
-	 * @param method The method from which the message originated
-	 * @param msg The message to be displayed
-	 */
-	public void log(String method, String msg)
-	{
-		System.out.println("[SPARQLUpdate] " + method + " : " + msg);
 	}
 
 }

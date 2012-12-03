@@ -6,9 +6,9 @@
  * @author Chris (c.baillie@abdn.ac.uk)
  */
 
-package rdf;
+package uk.ac.dotrural.reasoning.rdf;
 
-import entity.JsonEntity;
+import uk.ac.dotrural.reasoning.JsonEntity;
 
 public abstract class RdfEntity {
 	
