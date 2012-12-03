@@ -8,7 +8,7 @@
 
 package uk.ac.dotrural.reasoning.rdf;
 
-import uk.ac.dotrural.reasoning.JsonEntity;
+import uk.ac.dotrural.reasoning.entity.JsonEntity;
 
 public abstract class RdfEntity {
 	

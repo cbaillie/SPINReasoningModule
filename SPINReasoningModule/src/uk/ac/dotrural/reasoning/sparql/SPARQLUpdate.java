@@ -12,8 +12,6 @@ import com.hp.hpl.jena.update.UpdateRequest;
 
 public class SPARQLUpdate extends SPARQLUtility {
 	
-	private String endpoint;
-	
 	/**
 	 * Constructor
 	 * 
