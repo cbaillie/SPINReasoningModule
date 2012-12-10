@@ -53,6 +53,7 @@ public class MySQLLogger {
 		try
 		{
 			Statement stmt = con.createStatement();
+			con.close();
 			return stmt.executeQuery(query);
 		}
 		catch(Exception ex)
