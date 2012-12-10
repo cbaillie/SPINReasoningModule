@@ -26,11 +26,14 @@ public class EntityUtilities {
 		String tmp = "";
 		try
 		{
-			BufferedReader br = new BufferedReader(new InputStreamReader(new URL(url).openStream()));
+			InputStreamReader input = new InputStreamReader(new URL(url).openStream());
+			BufferedReader br = new BufferedReader(input);
 			while((tmp = br.readLine()) != null)
 			{
 				in.append(tmp);
 			}	
+			input.close();
+			br.close();
 		}
 		catch(Exception ex)
 		{
