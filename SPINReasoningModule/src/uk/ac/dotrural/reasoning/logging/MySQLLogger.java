@@ -49,6 +49,7 @@ public class MySQLLogger {
 	
 	public ResultSet doQuery(String query)
 	{
+		System.out.println("MySQLLogger] Query: " + query);
 		Connection con = getConnection();
 		try
 		{
@@ -76,9 +77,10 @@ public class MySQLLogger {
 		try
 		{
 			Statement stmt = con.createStatement();
-			if(stmt.executeUpdate(updateQuery) > 0)
-				return true;
+			int result = stmt.executeUpdate(updateQuery);
 			con.close();
+			if(result > 0)
+				return true;
 		}
 		catch(Exception ex)
 		{
