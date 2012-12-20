@@ -6,7 +6,10 @@
 
 package uk.ac.dotrural.reasoning.reasoner;
 
+import java.util.ArrayList;
+
 import org.topbraid.spin.inference.SPINInferences;
+import org.topbraid.spin.statistics.SPINStatistics;
 import org.topbraid.spin.system.SPINModuleRegistry;
 
 import com.hp.hpl.jena.ontology.OntModel;
@@ -52,9 +55,10 @@ public class Reasoner {
 	 * @param entityDescription The entity description to be reasoned about
 	 * @return Set of inferred triples
 	 */
-	public Model performReasoning(OntModel entityDescription)
+	public ReasonerResult performReasoning(OntModel entityDescription)
 	{
 		Model nTriples = ModelFactory.createDefaultModel();
+		ArrayList<SPINStatistics> stats = new ArrayList<SPINStatistics>();
 		OntModel reasoningModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
 		reasoningModel.add(rules);
 		reasoningModel.addSubModel(entityDescription);
@@ -64,16 +68,23 @@ public class Reasoner {
 		{
 			SPINModuleRegistry.get().init();
 			SPINModuleRegistry.get().registerAll(reasoningModel, null);
-			SPINInferences.run(reasoningModel, nTriples, null, null, false, null);
+			SPINInferences.run(reasoningModel, nTriples, null, stats, false, null);
 		}
 		catch (Exception ex)
 		{
 			ex.printStackTrace();
 		}
 		
+		long reasoningTime = 0;
 		System.out.println("[Reasoner] performReasoning : Inferred " + nTriples.size() + " triples");
+		for(int i=0;i<stats.size();i++)
+		{
+			SPINStatistics stat = (SPINStatistics)stats.get(i);
+			reasoningTime += stat.getDuration();
+		}
+		System.out.println("[Reasoner] Reasoning took " + reasoningTime + " ms");
 		
-		return nTriples;
+		return new ReasonerResult(nTriples, reasoningTime);
 	}
 
 }

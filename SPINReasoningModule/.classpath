@@ -9,7 +9,7 @@
 	<classpathentry kind="lib" path="/Users/chrisbaillie/Documents/workspace/Libs/icu4j-3.4.4.jar"/>
 	<classpathentry kind="lib" path="/Users/chrisbaillie/Documents/workspace/Libs/spin-1.2.0.jar"/>
 	<classpathentry kind="lib" path="/Users/chrisbaillie/Documents/workspace/Libs/spin-base-1.2.0.jar"/>
-	<classpathentry kind="lib" path="/Users/chrisbaillie/Documents/workspace/Libs/arq-2.8.7.jar"/>
 	<classpathentry kind="lib" path="/Users/chrisbaillie/Documents/workspace/Libs/fuseki-server-0.2.6.jar"/>
+	<classpathentry kind="lib" path="/Users/chrisbaillie/Documents/workspace/Libs/arq-2.8.7.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -17,6 +17,8 @@ public class MySQLLogger {
 	private String user;
 	private String password;
 	
+	private Connection con;
+	
 	/**
 	 * Constructor
 	 * 
@@ -29,6 +31,7 @@ public class MySQLLogger {
 		this.url = url;
 		this.user = user;
 		this.password = password;
+		con = getConnection();
 	}
 	
 	private Connection getConnection()
@@ -49,12 +52,12 @@ public class MySQLLogger {
 	
 	public ResultSet doQuery(String query)
 	{
+		if(con == null)
+			return null;
 		System.out.println("MySQLLogger] Query: " + query);
-		Connection con = getConnection();
 		try
 		{
 			Statement stmt = con.createStatement();
-			con.close();
 			return stmt.executeQuery(query);
 		}
 		catch(Exception ex)
@@ -88,6 +91,18 @@ public class MySQLLogger {
 			ex.printStackTrace();
 		}
 		return false;
+	}
+	
+	public void closeConnection()
+	{
+		try
+		{
+			con.close();
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
 	}
 
 }
